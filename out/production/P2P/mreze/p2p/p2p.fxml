@@ -27,7 +27,11 @@
             </padding>
             <TextArea fx:id="info" editable="false"/>
             <HBox spacing="10">
-                <TextField fx:id="findTextField"/>
+                <Button fx:id="selectFile" text="Share file" onAction="#locateFile"/>
+                <Label fx:id="fileName"/>
+            </HBox>
+            <HBox spacing="10">
+                <TextField fx:id="findTextField" maxWidth="150"/>
                 <Button fx:id="find" text="Find" onAction="#onFindClick"/>
             </HBox>
             <HBox spacing="5">

@@ -17,6 +17,7 @@ public class Peer {
 
     private byte guid;
     private int port;
+    private String file;//file that peer shares
 
     private AtomicInteger networkSize;
 
@@ -26,8 +27,9 @@ public class Peer {
 
     private Controller controller;
 
-    public Peer(int port, Controller controller) throws IOException {
+    public Peer(int port, Controller controller, String file) throws IOException {
         this.port = port;
+        this.file = file;
         this.guid = (byte) (this.isBootPeer() ? 0 : -1);
 
         this.networkSize = new AtomicInteger(0);
@@ -44,6 +46,10 @@ public class Peer {
 
     public void setGuid(byte guid) {
         this.guid = guid;
+    }
+
+    public String getFileName(){
+        return this.file;
     }
 
     public PeerDHT getPeerDHT() {
